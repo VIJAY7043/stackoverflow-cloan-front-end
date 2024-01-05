@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './App.css';
 
 function App() {
   const [questions, setQuestions] = useState([]);
@@ -9,7 +10,7 @@ function App() {
   });
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/questions')
+    fetch('https://stack-overflow-back-end-gkt2.onrender.com')
       .then(response => response.json())
       .then(data => setQuestions(data))
       .catch(error => console.error(error));
@@ -25,7 +26,7 @@ function App() {
   const handleFormSubmit = e => {
     e.preventDefault();
 
-    fetch('http://localhost:5000/api/questions', {
+    fetch('https://stack-overflow-back-end-gkt2.onrender.com', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
